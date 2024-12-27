@@ -1,0 +1,140 @@
+@import url(./fonts/fonts.css);
+
+:root {
+  --main-color: #2E9AFF;
+  --bkg-color: #1E2A34;
+  --dark-color: #000;
+  --light-color: #fff;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  color: var(--light-color);
+  font-family: Graphik, sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+  background-color: var(--bkg-color);
+}
+
+.page {
+  height: 100%;
+}
+
+a {
+  color: inherit;
+  font: inherit;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+section,
+footer {
+  min-height: 100dvh;
+  padding: 4.375rem 0;
+  background-color: var(--bkg-color);
+}
+
+.wrapper {
+  max-width: 1200px;
+  margin-inline: auto;
+  padding-inline: 1rem;
+}
+
+.top,
+.info {
+  background-color: var(--dark-color);
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1200px;
+  margin-inline: auto;
+  padding-inline: 1rem;
+}
+
+.link-container {
+  color: var(--main-color);
+}
+
+.link {
+  border-bottom: 1px solid var(--main-color);
+  color: var(--text-color);
+  font-size: 1.375rem;
+}
+
+.color {
+  position: relative;
+}
+
+.color-title {
+  position: absolute;
+  inset-block-end: 3.5rem;
+  inset-inline-start: 4.375rem;
+  font-weight: 500;
+  font-size: 8.25rem;
+}
+
+.color-container {
+  display: flex;
+  align-items: start;
+  gap: 6.625rem;
+}
+
+.color-card {
+  width: 16.8rem;
+  height: 21.375rem;
+  color: var(--dark-color);
+  font-family: Spot Mono, monospace;
+  font-weight: 500;
+  background-color: var(--light-color);
+}
+
+.color-block {
+  display: flex;
+  align-items: end;
+  width: 100%;
+  aspect-ratio: 1;
+  padding: 0 1.5rem;
+  font-size: 4rem;
+  background-color: var(--main-color);
+}
+
+.color-text {
+  padding: 1.5625rem 1rem;
+  font-size: 2rem;
+  text-align: center;
+}
+
+.color-content {
+  display: grid;
+  gap: 1rem;
+  max-width: 770px;
+  padding: 4rem 5rem;
+  align-content: center;
+  color: var(--dark-color);
+  font-size: 1.375rem;
+  background-color: var(--light-color);
+}
+
+.color-item {
+  width: 16rem;
+  aspect-ratio: 1;
+}
+
+.color-circle {
+  display: grid;
+  place-items: center;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background-color: var(--main-color);
+}
