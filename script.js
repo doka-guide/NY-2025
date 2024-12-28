@@ -1,27 +1,60 @@
-gsap.registerPlugin(ScrollTrigger);
+document.addEventListener("DOMContentLoaded", () => {
+  gsap.registerPlugin(ScrollTrigger);
 
-const panels = document.querySelectorAll(".panel");
+  // Анимация горизонтального скролла в первой секции
+  const horizontalContainer = document.querySelector(".scroll-container");
+  const blocks = gsap.utils.toArray(".scroll-container .scroll-block");
 
-// Устанавливаем высоту контейнера, чтобы включить scroll
-gsap.set(".page", {
-  height: panels.length * 100 + "dvh",
-});
+  gsap.set(horizontalContainer, { xPercent: 99 });
 
-// Создаем анимацию для каждой секции
-panels.forEach((panel) => {
-  ScrollTrigger.create({
-    trigger: panel,
-    start: "top top",
-    toggleActions: "play none none reverse",
-    scrub: true,
-    fastScrollEnd: true,
-    end: () => "+=" + panel.clientHeight,
-    snap: {
-      snapTo: 1, // Divide by the number of sections
-      duration: { min: 0.2, max: 1 }, // Duration for each snap
+  let scrollTween = gsap.to(horizontalContainer, {
+    xPercent: -20,
+    scrollTrigger: {
+      trigger: ".color",
+      start: "top top",
+      end: () => "+=" + blocks.length * 300,
+      scrub: 1,
+      pin: true,
     },
-    pin: true, // Pin the section for the entire height
-    pinSpacing: false, // Remove extra space when pinning
-    markers: true, // Remove ScrollTrigger markers (can be enabled for debugging)
+  });
+
+  blocks.forEach((block, i) => {
+    const t1 = gsap.timeline({
+      scrollTrigger: {
+        trigger: block,
+        start: "left 90%",
+        end: "left 30%",
+        scrub: 1,
+        containerAnimation: scrollTween,
+      },
+    });
+
+    const t2 = gsap.timeline({
+      scrollTrigger: {
+        trigger: block,
+        start: "left 90%",
+        end: "left 60%",
+        scrub: 1,
+        containerAnimation: scrollTween,
+      },
+    });
+
+    t1.to(block, {
+      scale: 1.2,
+    });
+
+    if (i !== blocks.length - 1) {
+      t1.to(block, {
+        scale: 1,
+      });
+    } else {
+      const img = block.querySelector(".color-image");
+
+      t2.to(img, {
+        scale: 1,
+        x: "-6rem",
+        y: "2.5rem",
+      });
+    }
   });
 });

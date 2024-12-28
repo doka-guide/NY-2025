@@ -37,11 +37,15 @@ a {
 section,
 footer {
   min-height: 100dvh;
-  padding: 4.375rem 0;
+  padding: clamp(2rem, 1.208rem + 3.519vw, 4.375rem) 0;
   background-color: var(--bkg-color);
 }
 
 .wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
   max-width: 1200px;
   margin-inline: auto;
   padding-inline: 1rem;
@@ -50,6 +54,11 @@ footer {
 .top,
 .info {
   background-color: var(--dark-color);
+}
+
+.title {
+  font-weight: 500;
+  font-size: clamp(4rem, 2.583rem + 6.296vw, 8.25rem);
 }
 
 .header {
@@ -62,36 +71,71 @@ footer {
 }
 
 .link-container {
-  color: var(--main-color);
+  position: relative;
+  z-index: 1;
 }
 
 .link {
-  border-bottom: 1px solid var(--main-color);
-  color: var(--text-color);
-  font-size: 1.375rem;
+  position: relative;
+  z-index: 0;
+  color: var(--light-color);
+  font-size: clamp(1rem, 0.875rem + 0.556vw, 1.375rem);
+  transition: color 0.3s;
+
+  &::after {
+    content: "";
+    position: absolute;
+    inset-block-end: -2px;
+    inset-inline-start: 0;
+    z-index: -1;
+    width: 100%;
+    height: 1px;
+    background-color: var(--main-color);
+    transition: height 0.3s;
+  }
+
+  &:hover .link-arrows {
+    color: var(--light-color);
+  }
+
+  &:hover::after {
+    height: 104%;
+  }
+}
+
+.link-arrows {
+  color: var(--main-color);
+  transition: color 0.3s;
 }
 
 .color {
   position: relative;
+  overflow: hidden;
 }
 
 .color-title {
   position: absolute;
-  inset-block-end: 3.5rem;
-  inset-inline-start: 4.375rem;
-  font-weight: 500;
-  font-size: 8.25rem;
+  inset-block-end: clamp(2rem, 1.5rem + 2.222vw, 3.5rem);
+  inset-inline-start: clamp(2.3rem, 1.608rem + 3.074vw, 4.375rem);
 }
 
 .color-container {
   display: flex;
   align-items: start;
-  gap: 6.625rem;
+  gap: clamp(5rem, 2.667rem + 10.37vw, 12rem);
+  height: 100%;
+  padding-block: 10dvh;
+
+  & > * {
+    flex-shrink: 0;
+  }
 }
 
 .color-card {
-  width: 16.8rem;
-  height: 21.375rem;
+  display: flex;
+  flex-direction: column;
+  width: 275px;
+  aspect-ratio: 1/1.2;
   color: var(--dark-color);
   font-family: Spot Mono, monospace;
   font-weight: 500;
@@ -109,7 +153,11 @@ footer {
 }
 
 .color-text {
-  padding: 1.5625rem 1rem;
+  display: flex;
+  flex-grow: 1;
+  justify-content: center;
+  align-items: center;
+  padding-inline: 1rem;
   font-size: 2rem;
   text-align: center;
 }
@@ -117,24 +165,115 @@ footer {
 .color-content {
   display: grid;
   gap: 1rem;
-  max-width: 770px;
-  padding: 4rem 5rem;
+  width: clamp(250px, 100%, 770px);
+  padding: clamp(1.5rem, 0.667rem + 3.704vw, 4rem) clamp(1rem, -0.333rem + 5.926vw, 5rem);
   align-content: center;
   color: var(--dark-color);
-  font-size: 1.375rem;
+  font-size: clamp(1rem, 0.875rem + 0.556vw, 1.375rem);
   background-color: var(--light-color);
 }
 
 .color-item {
-  width: 16rem;
+  width: 255px;
   aspect-ratio: 1;
 }
 
 .color-circle {
+  position: relative;
   display: grid;
   place-items: center;
   width: 100%;
   height: 100%;
   border-radius: 50%;
   background-color: var(--main-color);
+}
+
+.color-image {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  transform-origin: left center;
+  scale: 0.8;
+}
+
+.top {
+  display: grid;
+  grid-template-rows: auto 1fr;
+}
+
+.top-container {
+  display: flex;
+  gap: 2px;
+}
+
+.top-radio {
+  display: none;
+}
+
+.top-radio:checked + .top-item {
+  flex-grow: 1;
+}
+
+.top-radio:checked + .top-item .top-content {
+  opacity: 1;
+}
+
+.top-item {
+  width: 20%;
+  height: 100%;
+  padding: 2.5rem;
+  background-color: var(--bkg-color);
+  transition: flex-grow 0.3s;
+  cursor: pointer;
+}
+
+.top-item-title {
+  font-size: clamp(1rem, 0.875rem + 0.556vw, 1.375rem);
+  text-transform: uppercase;
+}
+
+.top-content {
+  opacity: 0;
+  transition: opacity 0.2s;
+}
+
+.authors-container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.authors {
+  display: flex;
+  align-items: first baseline;
+  gap: 1rem;
+  list-style: none;
+}
+
+.author {
+  flex-grow: 1;
+  flex-shrink: 1;
+  text-align: center;
+}
+
+.author-image {
+  width: 6.5dvw;
+  aspect-ratio: 1;
+  margin-inline: auto;
+  border-radius: 50%;
+
+  .first & {
+    width: 19.5dvw;
+  }
+
+  .second & {
+    width: 13dvw;
+  }
+
+  & > img  {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    object-fit: cover;
+  }
 }

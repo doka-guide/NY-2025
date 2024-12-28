@@ -18,13 +18,14 @@
     <section class="color panel">
       <header class="header">
         <a href="/" class="logo"><img src="./images/logo.svg" alt=""></a>
-        <div class="link-container"><a href="https://doka.guide/" class="link">Обратно в справочник</a> >>></div>
+        <div class="link-container"><a href="https://doka.guide/" class="link">Обратно в справочник <span
+              class="link-arrows">>>></span></a></div>
       </header>
       <div class="wrapper">
         <h1 class="color-title title">Цвет 2024 года</h1>
       </div>
-      <div class="color-container">
-        <div class="color-card">
+      <div class="color-container scroll-container">
+        <div class="color-card scroll-block">
           <div class="color-block">
             <span>CSS</span>
           </div>
@@ -32,13 +33,13 @@
             <p>HEX <span>#2E9AFF</span></p>
           </div>
         </div>
-        <div class="color-content">
+        <div class="color-content scroll-block">
           <p>Привет, это Дока! А это наши итоги года. Мы решили отпраздновать их выбором цвета прошедшего года. В 2024
             году самым популярным разделом оказался CSS, поэтому мы выбрали цвет этого раздела цветом года.</p>
           <p>(можно написать в этом блоке всё, что угодно, можно добавить больше блоков, сейчас мне просто нужен текст)
           </p>
         </div>
-        <div class="color-item">
+        <div class="color-item scroll-block">
           <div class="color-circle">
             <div class="color-image">
               <img src="./images/color-img.svg" alt="">
@@ -50,34 +51,50 @@
     <section class="top panel">
       <div class="wrapper">
         <h2 class="top-title title">ТОП-3</h2>
+
+        <div class="link-container"><a href="https://doka.guide/" class="link">Обратно в справочник <span
+              class="link-arrows">>>></span></a></div>
       </div>
       <div class="top-container">
-        <div class="top-item">
+        <input type="radio" id="top-1" name="top-slide" class="top-radio" checked>
+        <label class="top-item" for="top-1">
           <h3 class="top-item-title">Авторы</h3>
-          <ul class="authors">
-            <li class="author">
-              <div class="author-image"></div>
-              <h4 class="author-name"></h4>
-              <p></p>
-            </li>
-            <li class="author">
-              <div class="author-image"></div>
-              <h4 class="author-name"></h4>
-              <p></p>
-            </li>
-            <li class="author">
-              <div class="author-image"></div>
-              <h4 class="author-name"></h4>
-              <p></p>
-            </li>
-          </ul>
-        </div>
-        <div class="top-item">
+          <div class="top-content authors-container">
+            <ul class="authors">
+              <li class="author second">
+                <div class="author-image">
+                  <img src="https://doka.guide/people/doka-dog/photo.svg" alt="">
+                </div>
+                <h4 class="author-name"><a href="https://doka.guide/people/doka-dog/" class="link">Дока Дог</a></h4>
+                <p>100 статей!</p>
+              </li>
+              <li class="author first">
+                <div class="author-image">
+                  <img src="https://doka.guide/people/doka-dog/photo.svg" alt="">
+                </div>
+                <h4 class="author-name"><a href="https://doka.guide/people/doka-dog/" class="link">Дока Дог</a></h4>
+                <p>100 статей!</p>
+              </li>
+              <li class="author third">
+                <div class="author-image">
+                  <img src="https://doka.guide/people/doka-dog/photo.svg" alt="">
+                </div>
+                <h4 class="author-name"><a href="https://doka.guide/people/doka-dog/" class="link">Дока Дог</a></h4>
+                <p>100 статей!</p>
+              </li>
+            </ul>
+          </div>
+        </label>
+        <input type="radio" id="top-2" name="top-slide" class="top-radio">
+        <label class="top-item" for="top-2">
           <h3 class="top-item-title">Пулреквесты</h3>
-        </div>
-        <div class="top-item">
+          <div class="top-content"></div>
+        </label>
+        <input type="radio" id="top-3" name="top-slide" class="top-radio">
+        <label class="top-item" for="top-3">
           <h3 class="top-item-title">Комментарии</h3>
-        </div>
+          <div class="top-content"></div>
+        </label>
       </div>
     </section>
     <section class="metrics panel">
