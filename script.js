@@ -1,60 +1,88 @@
 document.addEventListener("DOMContentLoaded", () => {
   gsap.registerPlugin(ScrollTrigger);
 
-  // Анимация горизонтального скролла в первой секции
-  const horizontalContainer = document.querySelector(".scroll-container");
-  const blocks = gsap.utils.toArray(".scroll-container .scroll-block");
+  const scrollContainer = document.querySelector(".scroll-container");
+  const scrollBlocks = scrollContainer.querySelectorAll(".scroll-block");
 
-  gsap.set(horizontalContainer, { xPercent: 99 });
+  gsap.set(scrollContainer, { xPercent: 99, opacity: 1 });
 
-  let scrollTween = gsap.to(horizontalContainer, {
+  let scrollTween = gsap.to(scrollContainer, {
     xPercent: -20,
     scrollTrigger: {
       trigger: ".color",
       start: "top top",
-      end: () => "+=" + blocks.length * 300,
+      end: () => "+=" + scrollBlocks.length * 500,
       scrub: 1,
       pin: true,
     },
   });
 
-  blocks.forEach((block, i) => {
-    const t1 = gsap.timeline({
+  scrollBlocks.forEach((block, i) => {
+    const commonScrollTriggerConfig = {
+      trigger: block,
+      scrub: 1,
+      start: "left 90%",
+      containerAnimation: scrollTween,
+    };
+
+    const timeline = gsap.timeline({
       scrollTrigger: {
-        trigger: block,
-        start: "left 90%",
+        ...commonScrollTriggerConfig,
         end: "left 30%",
-        scrub: 1,
-        containerAnimation: scrollTween,
       },
     });
 
-    const t2 = gsap.timeline({
-      scrollTrigger: {
-        trigger: block,
-        start: "left 90%",
-        end: "left 60%",
-        scrub: 1,
-        containerAnimation: scrollTween,
-      },
-    });
+    timeline.to(block, { scale: 1.2 });
 
-    t1.to(block, {
-      scale: 1.2,
-    });
-
-    if (i !== blocks.length - 1) {
-      t1.to(block, {
-        scale: 1,
-      });
+    if (i === scrollBlocks.length - 1) {
+      gsap
+        .timeline({
+          scrollTrigger: {
+            ...commonScrollTriggerConfig,
+            end: "left 60%",
+          },
+        })
+        .to(block.querySelector(".color-image"), {
+          scale: 1,
+          x: "-6rem",
+          y: "2.5rem",
+        });
     } else {
-      const img = block.querySelector(".color-image");
-
-      t2.to(img, {
-        scale: 1,
-        x: "-6rem",
-        y: "2.5rem",
-      });
+      timeline.to(block, { scale: 1 });
     }
+  });
+
+  const panels = document.querySelectorAll(".panel");
+  panels.forEach((panel, i) => {
+    ScrollTrigger.create({
+      trigger: panel,
+      start: "top top",
+      end: "+=100%",
+      snap: {
+        snapTo: 1,
+        duration: 0.5,
+        ease: "power1.inOut",
+      },
+    });
+  });
+
+  const copyButtons = document.querySelectorAll(".copy-button");
+
+  copyButtons.forEach((copyButton) => {
+    copyButton.addEventListener("click", () => {
+      const copyIcon = copyButton.querySelector("svg");
+      const copyText = copyButton.previousElementSibling;
+
+      if (copyText && copyText.classList.contains("copy-text")) {
+        navigator.clipboard.writeText(copyText.innerText);
+        copyButton.innerHTML = `<svg viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"><path fill="#2E9AFF" d="M406.656 706.944 195.84 496.256a32 32 0 1 0-45.248 45.248l256 256 512-512a32 32 0 0 0-45.248-45.248L406.592 706.944z"></path></g></svg>`;
+        copyButton.style.pointerEvents = "none";
+
+        setTimeout(() => {
+          copyButton.innerHTML = copyIcon.outerHTML;
+          copyButton.style.pointerEvents = "all";
+        }, 3000);
+      }
+    });
   });
 });

@@ -27,18 +27,24 @@ body {
   height: 100%;
 }
 
-a {
+a, button {
   color: inherit;
   font: inherit;
   text-decoration: none;
   cursor: pointer;
 }
 
-section,
-footer {
+section, footer {
   min-height: 100dvh;
   padding: clamp(2rem, 1.208rem + 3.519vw, 4.375rem) 0;
   background-color: var(--bkg-color);
+}
+
+.copy-button {
+  width: 1.5rem;
+  aspect-ratio: 1;
+  border: none;
+  background-color: transparent;
 }
 
 .wrapper {
@@ -125,6 +131,7 @@ footer {
   gap: clamp(5rem, 2.667rem + 10.37vw, 12rem);
   height: 100%;
   padding-block: 10dvh;
+  opacity: 0;
 
   & > * {
     flex-shrink: 0;
@@ -135,7 +142,8 @@ footer {
   display: flex;
   flex-direction: column;
   width: 275px;
-  aspect-ratio: 1/1.2;
+  overflow: hidden;
+  /* aspect-ratio: 1/1.2; */
   color: var(--dark-color);
   font-family: Spot Mono, monospace;
   font-weight: 500;
@@ -157,9 +165,12 @@ footer {
   flex-grow: 1;
   justify-content: center;
   align-items: center;
+  gap: 0.2em;
   padding-inline: 1rem;
   font-size: 2rem;
   text-align: center;
+  background-color: var(--light-color);
+  white-space: nowrap;
 }
 
 .color-content {
@@ -212,19 +223,24 @@ footer {
 
 .top-radio:checked + .top-item {
   flex-grow: 1;
+  background-color: var(--bkg-color);
 }
 
 .top-radio:checked + .top-item .top-content {
-  opacity: 1;
+  width: 100%;
 }
 
 .top-item {
   width: 20%;
   height: 100%;
   padding: 2.5rem;
-  background-color: var(--bkg-color);
-  transition: flex-grow 0.3s;
+  background-color: color(from var(--bkg-color) srgb r g b / 70%);
+  transition: flex-grow 0.3s, width 0.3s, background-color 0.3s;
   cursor: pointer;
+
+  :not(:checked) ~ &:hover {
+    width: 22%;
+  }
 }
 
 .top-item-title {
@@ -232,21 +248,27 @@ footer {
   text-transform: uppercase;
 }
 
-.top-content {
-  opacity: 0;
-  transition: opacity 0.2s;
+:not(:checked).top-content {
+  width: 0px;
+  overflow: hidden;
+  transition: width 0.3s;
 }
 
 .authors-container {
   position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   width: 100%;
   height: 100%;
 }
 
 .authors {
   display: flex;
+  justify-content: space-between;
   align-items: first baseline;
   gap: 1rem;
+  width: 100%;
   list-style: none;
 }
 
@@ -275,5 +297,29 @@ footer {
     height: 100%;
     border-radius: 50%;
     object-fit: cover;
+  }
+}
+
+.float {
+  transition: ease 0.5s;
+  transform: translateY(-5%);
+  animation: float 3s ease-in-out alternate-reverse infinite;
+
+  &:hover {
+    animation-play-state: paused;
+  }
+
+  &:nth-child(2) {
+    animation-delay: 0.5s;
+  }
+
+  &:nth-child(3) {
+    animation-delay: -0.5s;
+  }
+}
+
+@keyframes float {
+  50% {
+    transform: translateY(5%);
   }
 }
