@@ -85,4 +85,25 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     });
   });
+
+  const prCubes = document.querySelectorAll(".pr-cube");
+
+  prCubes.forEach((prCube, index) => {
+    prCube.addEventListener("mouseenter", () => {
+      gsap.to(prCube, { scale: 1.4 });
+      if (index - 1 >= 0) {
+        gsap.to(prCubes[index - 1], { scale: 1.2 });
+      }
+
+      if (index + 1 < prCubes.length) {
+        gsap.to(prCubes[index + 1], { scale: 1.2 });
+      }
+    });
+
+    prCube.addEventListener("mouseleave", () => {
+      prCubes.forEach((cube) => {
+        gsap.to(cube, { scale: 1 });
+      });
+    });
+  });
 });
