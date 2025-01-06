@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", () => {
-  gsap.registerPlugin(ScrollTrigger);
+  gsap.registerPlugin(ScrollTrigger, Draggable);
 
   const scrollContainer = document.querySelector(".scroll-container");
   const scrollBlocks = scrollContainer.querySelectorAll(".scroll-block");
@@ -104,6 +104,40 @@ document.addEventListener("DOMContentLoaded", () => {
       prCubes.forEach((cube) => {
         gsap.to(cube, { scale: 1 });
       });
+    });
+  });
+
+  const draggableBadges = gsap.utils.toArray(".metrics-badge");
+
+  draggableBadges.forEach((badge) => {
+    badge.addEventListener("mouseenter", () => {
+      const mainProps = {
+        duration: 1,
+        ease: "sine.inOut",
+        repeat: -1,
+        yoyo: true,
+      };
+      gsap.to(badge, {
+        rotation: 10,
+        ...mainProps,
+      });
+    });
+
+    badge.addEventListener("mouseleave", () => {
+      gsap.killTweensOf(badge);
+      gsap.to(badge, { rotation: 0, duration: 0.5 });
+    });
+  });
+
+  draggableBadges.forEach((badge) => {
+    Draggable.create(badge, {
+      bounds: ".metrics-content",
+      onDrag: function () {
+        badge.classList.add("dragging");
+      },
+      onDragEnd: function () {
+        badge.classList.remove("dragging");
+      },
     });
   });
 });
