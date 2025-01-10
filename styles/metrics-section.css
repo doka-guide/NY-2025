@@ -1,0 +1,56 @@
+.metrics {
+  display: grid;
+  height: 100dvh;
+  padding-block: 0;
+
+  & .link-container {
+    position: absolute;
+    inset-block-start: clamp(2rem, 1.208rem + 3.519vw, 4.375rem);
+    inset-inline-end: 0;
+  }
+
+  & .wrapper {
+    position: relative;
+    justify-content: center;
+    grid-area: 1/1;
+    height: 100%;
+  }
+
+  & .metrics-content {
+    position: relative;
+    grid-area: 1/1;
+  }
+}
+
+.metrics-text {
+  position: absolute;
+  inset-block-start: 10%;
+  inset-inline-start: 50%;
+  text-transform: uppercase;
+  transform: translate(-50%, -50%);
+
+  &:nth-child(2) {
+    inset-block-start: 30%;
+    inset-inline-start: 80%;
+  }
+
+  &:nth-child(3) {
+    inset-block-start: 80%;
+    inset-inline-start: 80%;
+  }
+
+  &:nth-child(4) {
+    inset-block-start: 90%;
+    inset-inline-start: 50%;
+  }
+
+  &:nth-child(5) {
+    inset-block-start: 80%;
+    inset-inline-start: 20%;
+  }
+
+  &:nth-child(6) {
+    inset-block-start: 30%;
+    inset-inline-start: 20%;
+  }
+}

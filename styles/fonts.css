@@ -1,11 +1,11 @@
 @font-face {
   font-family: Graphik;
-  src: url(graphik-regular.woff2);
+  src: url(../fonts/graphik-regular.woff2);
   local('Graphik Regular'), local('Graphik-Regular'), url(graphik-regular.woff2) format('woff2');
 }
 
 @font-face {
   font-family: Spot Mono;
-  src: url(spot-mono-light.woff2);
+  src: url(../fonts/spot-mono-light.woff2);
   local('Spot Mono Light'), local('Spot-Mono-Light'), url(spot-mono-light.woff2) format('woff2');
 }

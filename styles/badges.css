@@ -1,0 +1,74 @@
+.badge {
+  position: absolute;
+  inset-block-start: 50%;
+  inset-inline-start: 50%;
+  box-sizing: content-box;
+  width: 100px;
+  height: auto;
+  padding: 45px;
+
+  &:not(.dragging):hover {
+    outline: 1px dashed var(--main-color);
+
+    &::after {
+      content: "Тащи!";
+      position: absolute;
+      inset-block-end: -35px;
+      inset-inline-end: -35px;
+      color: var(--main-color);
+      font-size: clamp(1rem, 0.875rem + 0.556vw, 1.375rem);
+    }
+  }
+
+  &.sticky {
+    inset-block-start: 54%;
+    inset-inline-start: 59%;
+    width: clamp(10rem, 8.1322rem + 7.9693vw, 16.5rem);
+  }
+
+  &.dog {
+    inset-block-start: auto;
+    inset-block-end: -50px;
+    inset-inline-start: 75%;
+    width: clamp(8rem, 7.1379rem + 3.6782vw, 11rem);
+  }
+
+  &.mouse {
+    inset-block-start: auto;
+    inset-block-end: 0;
+    inset-inline-start: 10%;
+    width: clamp(8rem, 7.1379rem + 3.6782vw, 11rem);
+  }
+
+  &.asterisk {
+    inset-block-start: 30%;
+    inset-inline-start: 60%;
+    width: clamp(4rem, 3.3534rem + 2.7586vw, 6.25rem);
+  }
+
+  &.doggo {
+    inset-block-start: 10%;
+    inset-inline-start: 20%;
+    width: clamp(9rem, 8.3894rem + 2.6054vw, 11.125rem);
+  }
+
+  &.avatar {
+    inset-block-start: 40%;
+    inset-inline-start: 20%;
+    width: clamp(11rem, 10.1197rem + 3.7559vw, 13.5rem);
+  }
+
+  &.last-bun {
+    inset-block-start: 38%;
+    inset-inline-start: 50%;
+    width: clamp(8rem, 6.9437rem + 4.5070vw, 11rem);
+    transform: rotate(-10deg);
+  }
+
+  &.css-badge {
+
+    inset-block-start: 40%;
+    inset-inline-start: 70%;
+    width: clamp(6rem, 5.1637rem + 3.5681vw, 8.375rem);
+  }
+}

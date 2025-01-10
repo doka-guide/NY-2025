@@ -52,6 +52,21 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 
+  const infoContainer = document.querySelector(".info-container");
+  const infoBlocks = infoContainer.querySelectorAll(".info-block");
+
+  gsap.to(infoBlocks, {
+    xPercent: -100 * (infoBlocks.length - 1),
+    ease: "none",
+    scrollTrigger: {
+      trigger: ".info",
+      pin: true,
+      scrub: 1,
+      snap: 1 / (infoBlocks.length - 1),
+      end: () => "+=5000",
+    },
+  });
+
   const panels = document.querySelectorAll(".panel");
   panels.forEach((panel, i) => {
     ScrollTrigger.create({
@@ -107,7 +122,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 
-  const draggableBadges = gsap.utils.toArray(".metrics-badge");
+  const draggableBadges = gsap.utils.toArray(".badge");
 
   draggableBadges.forEach((badge) => {
     badge.addEventListener("mouseenter", () => {
@@ -131,7 +146,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   draggableBadges.forEach((badge) => {
     Draggable.create(badge, {
-      bounds: ".metrics-content",
+      bounds: badge.closest("dragg-zone"),
       onDrag: function () {
         badge.classList.add("dragging");
       },
