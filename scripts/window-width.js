@@ -15,10 +15,7 @@ export function windowWidthDetection() {
 
   const handleResize = debounce(() => {
     windowWidth = window.innerWidth;
-    console.log(windowWidth);
   }, 200);
-
-  window.addEventListener("resize", handleResize);
 
   return windowWidth;
 }

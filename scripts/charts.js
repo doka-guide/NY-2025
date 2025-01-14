@@ -5,6 +5,8 @@ const chatMembers = document.getElementById("chatMembers");
 
 const windowWidth = windowWidthDetection();
 
+window.addEventListener("resize", () => (windowWidth = windowWidthDetection()));
+
 new Chart(chatMembers, {
   type: "line",
   responsive: true,
