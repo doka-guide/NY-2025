@@ -39,7 +39,7 @@ new Chart(seasonPRs, {
     labels: ["Зима", "Весна", "Лето", "Осень"],
     datasets: [
       {
-        data: [5, 10, 15, 20],
+        data: [72, 133, 86, 42],
         backgroundColor: ["#123E66", "#665610", "#623D45", "#663613"],
       },
     ],
@@ -62,7 +62,7 @@ new Chart(streamWatch, {
     datasets: [
       {
         label: "Просмотры стримов",
-        data: [12, 19, 3, 5, 2, 3],
+        data: [1199, 884, 1640, 791, 1060, 1140, 1584, 990, 606, 2903, 617, 530],
         borderWidth: 4,
         borderColor: "#F498AD",
       },
@@ -115,7 +115,7 @@ new Chart(newMaterials, {
     labels: ["HTML", "CSS", "JavaScript", "A11y", "Веб-платформа", "Рецепты"],
     datasets: [
       {
-        data: [5, 10, 15, 20, 25, 30],
+        data: [5, 16, 17, 13, 3, 7],
         backgroundColor: [
           "#663613",
           "#123E66",
