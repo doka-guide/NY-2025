@@ -114,6 +114,18 @@
   gap: 1rem;
   width: 100%;
   list-style: none;
+
+  .first {
+    order: 2;
+  }
+
+  .second {
+    order: 1;
+  }
+
+  .third {
+    order: 3;
+  }
 }
 
 @media (width < 1024px) {
@@ -291,6 +303,7 @@
   justify-content: center;
   align-items: center;
   width: clamp(200px, 16dvw, 340px);
+  min-width: clamp(fit-content);
   aspect-ratio: 1;
   border-radius: 50%;
   color: var(--dark-color);
@@ -306,14 +319,14 @@
   &.second {
     inset-block-start: 32%;
     inset-inline-end: 60%;
-    width: clamp(120px, 10dvw, 260px);
+    width: clamp(fit-content);
     background-color: color(from var(--main-color) srgb r g b / 75%);
   }
 
   &.third {
     inset-block-start: 55%;
     inset-inline-end: 45%;
-    width: clamp(80px, 6.667dvw, 220px);
+    width: clamp(fit-content);
     background-color: color(from var(--main-color) srgb r g b / 50%);
   }
 
