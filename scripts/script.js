@@ -10,7 +10,7 @@ document.addEventListener("DOMContentLoaded", () => {
     () => (windowWidth = windowWidthDetection())
   );
 
-  if (windowWidth > 768) {
+  if (windowWidth > 1024) {
     const scrollContainer = document.querySelector(".scroll-container");
     const scrollBlocks = scrollContainer.querySelectorAll(".scroll-block");
 

@@ -3,7 +3,7 @@ import { windowWidthDetection } from "./window-width.js";
 
 const chatMembers = document.getElementById("chatMembers");
 
-const windowWidth = windowWidthDetection();
+let windowWidth = windowWidthDetection();
 
 window.addEventListener("resize", () => (windowWidth = windowWidthDetection()));
 

@@ -9,7 +9,7 @@
   inset-inline-start: clamp(2.3rem, 1.608rem + 3.074vw, 4.375rem);
 }
 
-@media (width < 767px) {
+@media (width < 1024px) {
   .color-title.title {
     position: static;
     margin-inline: auto;
@@ -30,7 +30,7 @@
   }
 }
 
-@media (width < 767px) {
+@media (width < 1024px) {
   .color-container {
     flex-direction: column;
     align-items: center;

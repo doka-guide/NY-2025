@@ -6,7 +6,7 @@
   & .link-container {
     position: absolute;
     inset-block-start: clamp(2rem, 1.208rem + 3.519vw, 4.375rem);
-    inset-inline-end: 0;
+    inset-inline-end: 4.375rem;
   }
 
   & .wrapper {
@@ -24,7 +24,7 @@
   }
 }
 
-@media (width < 767px) {
+@media (width < 1024px) {
   .footer {
     & .link-container {
       position: static;

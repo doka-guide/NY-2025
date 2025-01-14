@@ -239,13 +239,13 @@
   font-size: clamp(1rem, 0.875rem + 0.556vw, 1.375rem);
 }
 
-@media (width < 1024px) {
+@media (width < 1210px) {
   .pull-request-line {
     flex-direction: column;
   }
 }
 
-@media (width < 767px) {
+@media (width < 1024px) {
   .pull-request-line {
     font-size: 2rem;
   }
@@ -260,13 +260,13 @@
   gap: 0.5rem;
 }
 
-@media (width < 1024px) {
+@media (width < 1210px) {
   .pull-request-cubes {
     gap: 0;
   }
 }
 
-@media (width < 767px) {
+@media (width < 1024px) {
   .pull-request-cubes {
     display: none;
   }
@@ -295,6 +295,7 @@
   border-radius: 50%;
   color: var(--dark-color);
   font-size: clamp(1rem, 0.875rem + 0.556vw, 1.375rem);
+  text-align: center;
   background-color: var(--main-color);
 
   & .comments-count {
@@ -321,7 +322,7 @@
   }
 }
 
-@media (width < 767px) {
+@media (width < 1024px) {
   .top-content:has(.comments) {
     align-content: center;
   }

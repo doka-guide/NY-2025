@@ -56,7 +56,7 @@ section, footer {
   padding-inline: 4.375rem;
 }
 
-@media (width < 767px) {
+@media (width < 1024px) {
   .wrapper {
     flex-direction: column;
     align-items: baseline;
@@ -75,7 +75,7 @@ section, footer {
   font-size: clamp(4rem, 2.583rem + 6.296vw, 8.25rem);
 }
 
-@media (width < 767px) {
+@media (width < 1024px) {
   .title {
     font-size: 2rem;
   }
@@ -91,7 +91,7 @@ section, footer {
   padding-inline: 4.375rem;
 }
 
-@media (width < 767px) {
+@media (width < 1024px) {
   .header {
     flex-direction: column;
     gap: 2rem;

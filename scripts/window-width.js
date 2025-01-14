@@ -17,5 +17,7 @@ export function windowWidthDetection() {
     windowWidth = window.innerWidth;
   }, 200);
 
+  window.addEventListener("resize", handleResize);
+
   return windowWidth;
 }
