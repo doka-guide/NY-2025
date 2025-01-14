@@ -9,6 +9,14 @@
   inset-inline-start: clamp(2.3rem, 1.608rem + 3.074vw, 4.375rem);
 }
 
+@media (width < 767px) {
+  .color-title.title {
+    position: static;
+    margin-inline: auto;
+    text-align: center;
+  }
+}
+
 .color-container {
   display: flex;
   align-items: start;
@@ -19,6 +27,15 @@
 
   & > * {
     flex-shrink: 0;
+  }
+}
+
+@media (width < 767px) {
+  .color-container {
+    flex-direction: column;
+    align-items: center;
+    padding-block: 5dvh;
+    opacity: 1;
   }
 }
 

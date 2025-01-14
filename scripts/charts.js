@@ -1,6 +1,9 @@
 import { months } from "./utils.js";
+import { windowWidthDetection } from "./window-width.js";
 
 const chatMembers = document.getElementById("chatMembers");
+
+const windowWidth = windowWidthDetection();
 
 new Chart(chatMembers, {
   type: "line",
@@ -12,7 +15,7 @@ new Chart(chatMembers, {
       {
         label: "Кол-во участников в чате",
         data: [12, 19, 3, 5, 2, 3],
-        borderWidth: 2,
+        borderWidth: 4,
         borderColor: "#2E9AFF",
       },
     ],
@@ -58,7 +61,7 @@ new Chart(streamWatch, {
       {
         label: "Просмотры стримов",
         data: [12, 19, 3, 5, 2, 3],
-        borderWidth: 2,
+        borderWidth: 4,
         borderColor: "#F498AD",
       },
     ],
@@ -82,13 +85,13 @@ new Chart(maintainers, {
       {
         label: "Контрибьюторы",
         data: [12, 19, 3, 5, 2, 3],
-        borderWidth: 2,
+        borderWidth: 4,
         borderColor: "#F498AD",
       },
       {
         label: "Редакция",
         data: [3, 5, 2, 3, 12, 19],
-        borderWidth: 2,
+        borderWidth: 4,
         borderColor: "#2E9AFF",
       },
     ],
@@ -112,12 +115,12 @@ new Chart(newMaterials, {
       {
         data: [5, 10, 15, 20, 25, 30],
         backgroundColor: [
-          "#FF8630",
-          "#2E9AFF",
-          "#FFD829",
-          "#10F3AF",
-          "#41E847",
-          "#C56FFF",
+          "#663613",
+          "#123E66",
+          "#665610",
+          "#024B35",
+          "#1A5D1C",
+          "#5F377D",
         ],
       },
     ],
@@ -133,6 +136,12 @@ new Chart(newMaterials, {
 
 const newOldContributors = document.getElementById("newOldContributors");
 
+let labelPosition = "left";
+
+if (windowWidth <= 1024) {
+  labelPosition = "bottom";
+}
+
 new Chart(newOldContributors, {
   type: "pie",
   data: {
@@ -141,12 +150,12 @@ new Chart(newOldContributors, {
       {
         data: [5, 10, 15, 20, 25, 30],
         backgroundColor: [
-          "#FF8630",
-          "#2E9AFF",
-          "#FFD829",
-          "#10F3AF",
-          "#41E847",
-          "#C56FFF",
+          "#663613",
+          "#123E66",
+          "#665610",
+          "#024B35",
+          "#1A5D1C",
+          "#5F377D",
         ],
       },
     ],
@@ -159,7 +168,7 @@ new Chart(newOldContributors, {
     },
     plugins: {
       legend: {
-        position: "left",
+        position: labelPosition,
       },
     },
   },

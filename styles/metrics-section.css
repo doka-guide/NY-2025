@@ -12,13 +12,44 @@
   & .wrapper {
     position: relative;
     justify-content: center;
-    grid-area: 1/1;
     height: 100%;
   }
 
   & .metrics-content {
     position: relative;
-    grid-area: 1/1;
+    align-content: center;
+  }
+}
+
+@media (width >= 768px) {
+  .metrics {
+    & .wrapper {
+      grid-area: 1/1;
+    }
+
+    & .metrics-content {
+      grid-area: 1/1;
+    }
+  }
+}
+
+@media (width < 767px) {
+  .metrics {
+    display: grid;
+    grid-template-rows: auto 1fr;
+    padding-block: 2rem;
+
+    & .link-container {
+      position: static;
+    }
+
+    & .wrapper {
+      height: auto;
+    }
+
+    & .badge {
+      display: none;
+    }
   }
 }
 
@@ -52,5 +83,13 @@
   &:nth-child(6) {
     inset-block-start: 30%;
     inset-inline-start: 20%;
+  }
+}
+
+@media (width < 767px) {
+  .metrics-text {
+    position: static;
+    text-align: center;
+    transform: none;
   }
 }

@@ -23,3 +23,11 @@
     grid-area: 1/1;
   }
 }
+
+@media (width < 767px) {
+  .footer {
+    & .link-container {
+      position: static;
+    }
+  }
+}

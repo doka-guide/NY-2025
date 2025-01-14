@@ -66,9 +66,24 @@
   }
 
   &.css-badge {
-
     inset-block-start: 40%;
     inset-inline-start: 70%;
     width: clamp(6rem, 5.1637rem + 3.5681vw, 8.375rem);
+  }
+}
+
+@media (width < 767px) {
+  .badge {
+    &.avatar {
+      inset-block-start: auto;
+      inset-block-end: -10px;
+      inset-inline-start: 0;
+      padding: 0;
+    }
+
+    &.last-bun,
+    &.css-badge {
+      display: none;
+    }
   }
 }
