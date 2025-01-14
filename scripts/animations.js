@@ -1,6 +1,7 @@
 import { windowWidthDetection } from "./window-width.js";
+import { mobileBreakPoint } from "./constants.js";
 
-document.addEventListener("DOMContentLoaded", () => {
+const init = () => {
   gsap.registerPlugin(ScrollTrigger, Draggable);
 
   let windowWidth = windowWidthDetection();
@@ -10,7 +11,7 @@ document.addEventListener("DOMContentLoaded", () => {
     () => (windowWidth = windowWidthDetection())
   );
 
-  if (windowWidth > 1024) {
+  if (windowWidth > mobileBreakPoint) {
     const scrollContainer = document.querySelector(".scroll-container");
     const scrollBlocks = scrollContainer.querySelectorAll(".scroll-block");
 
@@ -149,5 +150,26 @@ document.addEventListener("DOMContentLoaded", () => {
         },
       });
     });
+  }
+};
+
+const destroy = () => {
+  // тут надо аккуратно почистить все анимации
+  gsap.globalTimeline.pause();
+};
+
+const media = window.matchMedia(`(min-width: ${mobileBreakPoint}px)`);
+
+document.addEventListener("DOMContentLoaded", () => {
+  media.addEventListener("change", (e) => {
+    if (e.matches) {
+      init();
+    } else {
+      destroy();
+    }
+  });
+
+  if (media.matches) {
+    init();
   }
 });
