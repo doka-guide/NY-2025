@@ -15,8 +15,8 @@ new Chart(chatMembers, {
     labels: months({ count: 12 }),
     datasets: [
       {
-        label: "Кол-во участников в чате",
-        data: [12, 19, 3, 5, 2, 3],
+        label: "Подписчиков на канал Доки",
+        data: [0, 0, 0, 0, 0, 0, 0, 0, 0, 1433, 1467, 1521],
         borderWidth: 4,
         borderColor: "#2E9AFF",
       },
