@@ -136,3 +136,45 @@ new Chart(newMaterials, {
   },
 });
 
+const browserVisitors = document.getElementById("browserVisitors");
+
+let labelPosition = "left";
+
+if (windowWidth <= 1024) {
+  labelPosition = "bottom";
+}
+
+new Chart(browserVisitors, {
+  type: "pie",
+  data: {
+    labels: ["Google Chrome", "Яндекс.Браузер", "Chrome Mobile", "Firefox", "Mobile Safary", "Opera", "Edge", "Safary", "Другие"],
+    datasets: [
+      {
+        data: [2050000, 682641, 360276, 159278, 156863, 153741, 153578, 163623],
+        backgroundColor: [
+          "#663613",
+          "#123E66",
+          "#665610",
+          "#024B35",
+          "#1A5D1C",
+          "#5F377D",
+          "#024B25",
+          "#979797",
+          "#FFFFFF"
+        ],
+      },
+    ],
+  },
+  options: {
+    scales: {
+      y: {
+        beginAtZero: true,
+      },
+    },
+    plugins: {
+      legend: {
+        position: labelPosition,
+      },
+    },
+  },
+});
