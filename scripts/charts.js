@@ -1,5 +1,6 @@
 import { months } from "./utils.js";
 import { windowWidthDetection } from "./window-width.js";
+import { mobileBreakPoint } from "./constants.js";
 
 const repoActivity = document.getElementById("repoActivity");
 

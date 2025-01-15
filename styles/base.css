@@ -108,7 +108,7 @@ section, footer {
 .link {
   position: relative;
   z-index: 0;
-  color: var(--light-color);
+  color: currentColor;
   font-size: clamp(1rem, 0.875rem + 0.556vw, 1.375rem);
   transition: color 0.3s;
 
