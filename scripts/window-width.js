@@ -21,3 +21,6 @@ export function windowWidthDetection() {
 
   return windowWidth;
 }
+
+
+

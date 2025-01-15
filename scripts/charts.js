@@ -1,5 +1,6 @@
 import { months } from "./utils.js";
 import { windowWidthDetection } from "./window-width.js";
+import { mobileBreakPoint } from "./constants.js";
 
 const chatMembers = document.getElementById("chatMembers");
 
@@ -140,7 +141,7 @@ const newOldContributors = document.getElementById("newOldContributors");
 
 let labelPosition = "left";
 
-if (windowWidth <= 1024) {
+if (windowWidth <= mobileBreakPoint) {
   labelPosition = "bottom";
 }
 
