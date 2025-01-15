@@ -86,13 +86,13 @@ new Chart(maintainers, {
     datasets: [
       {
         label: "Контрибьюторы",
-        data: [12, 19, 3, 5, 2, 3],
+        data: [14, 10, 22, 25, 11, 22, 27, 4, 0, 5, 5, 15],
         borderWidth: 4,
         borderColor: "#F498AD",
       },
       {
         label: "Редакция",
-        data: [3, 5, 2, 3, 12, 19],
+        data: [1, 7, 13, 29, 10, 7, 3, 4, 0, 2, 1, 4],
         borderWidth: 4,
         borderColor: "#2E9AFF",
       },
@@ -115,7 +115,7 @@ new Chart(newMaterials, {
     labels: ["HTML", "CSS", "JavaScript", "A11y", "Веб-платформа", "Рецепты"],
     datasets: [
       {
-        data: [5, 16, 17, 13, 3, 7],
+        data: [6, 19, 44, 12, 4, 6],
         backgroundColor: [
           "#663613",
           "#123E66",
