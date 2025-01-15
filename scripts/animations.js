@@ -154,8 +154,10 @@ const init = () => {
 };
 
 const destroy = () => {
-  // тут надо аккуратно почистить все анимации
-  gsap.globalTimeline.pause();
+  ScrollTrigger.killAll();
+  gsap.set("*", { clearProps: true });
+  gsap.killTweensOf("*");
+  gsap.globalTimeline.clear();
 };
 
 const media = window.matchMedia(`(min-width: ${mobileBreakPoint}px)`);
