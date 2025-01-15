@@ -136,7 +136,7 @@ new Chart(newMaterials, {
   },
 });
 
-const browserVisitors = document.getElementById("browserVisitors");
+const browserVisitors = document.getElementById("browserVisitors"); 
 
 let labelPosition = "left";
 
@@ -151,6 +151,43 @@ new Chart(browserVisitors, {
     datasets: [
       {
         data: [2050000, 682641, 360276, 159278, 156863, 153741, 153578, 163623, 163623],
+        backgroundColor: [
+          "#663613",
+          "#123E66",
+          "#665610",
+          "#024B35",
+          "#1A5D1C",
+          "#5F377D",
+          "#024B25",
+          "#979797",
+          "#FFFFFF"
+        ],
+      },
+    ],
+  },
+  options: {
+    scales: {
+      y: {
+        beginAtZero: true,
+      },
+    },
+    plugins: {
+      legend: {
+        position: labelPosition,
+      },
+    },
+  },
+});
+
+const systemVisitors = document.getElementById("systemVisitors");
+
+new Chart(systemVisitors, {
+  type: "pie",
+  data: {
+    labels: ["Windows", "macOS", "Android", "iOS", "Linux", "Другие"],
+    datasets: [
+      {
+        data: [2560000, 503837, 432610, 194612, 194049, 334],
         backgroundColor: [
           "#663613",
           "#123E66",
