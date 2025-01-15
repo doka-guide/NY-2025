@@ -1,22 +1,28 @@
 import { months } from "./utils.js";
 import { windowWidthDetection } from "./window-width.js";
 
-const chatMembers = document.getElementById("chatMembers");
+const repoActivity = document.getElementById("repoActivity");
 
 let windowWidth = windowWidthDetection();
 
 window.addEventListener("resize", () => (windowWidth = windowWidthDetection()));
 
-new Chart(chatMembers, {
+new Chart(repoActivity, {
   type: "line",
   responsive: true,
   maintainAspectRatio: false,
   data: {
-    labels: months({ count: 12 }),
+    labels: ["Январь", "Март", "Июнь", "Август", "Ноябрь", "Декабрь"],
     datasets: [
       {
-        label: "Подписчиков на канал Доки",
-        data: [0, 0, 0, 0, 0, 0, 0, 0, 0, 1433, 1467, 1521],
+        label: "Новые ишью",
+        data: [19, 20, 22, 7, 28, 0],
+        borderWidth: 4,
+        borderColor: "#F498AD",
+      },
+      {
+        label: "Новые пулреквесты",
+        data: [89, 119, 95, 41, 70, 0],
         borderWidth: 4,
         borderColor: "#2E9AFF",
       },
