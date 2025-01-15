@@ -115,6 +115,18 @@
   gap: 1rem;
   width: 100%;
   list-style: none;
+
+  .first {
+    order: 2;
+  }
+
+  .second {
+    order: 1;
+  }
+
+  .third {
+    order: 3;
+  }
 }
 
 @media (width < 1024px) {
