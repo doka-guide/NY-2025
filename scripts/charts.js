@@ -150,7 +150,7 @@ new Chart(browserVisitors, {
     labels: ["Google Chrome", "Яндекс.Браузер", "Chrome Mobile", "Firefox", "Mobile Safary", "Opera", "Edge", "Safary", "Другие"],
     datasets: [
       {
-        data: [2050000, 682641, 360276, 159278, 156863, 153741, 153578, 163623],
+        data: [2050000, 682641, 360276, 159278, 156863, 153741, 153578, 163623, 163623],
         backgroundColor: [
           "#663613",
           "#123E66",
