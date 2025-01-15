@@ -86,12 +86,12 @@
   }
 
   &:nth-child(7) {
-    inset-block-start: 35%;
-    inset-inline-start: 70%;
+    inset-block-start: 50%;
+    inset-inline-start: 80%;
   }
 
   &:nth-child(8) {
-    inset-block-start: 60%;
+    inset-block-start: 50%;
     inset-inline-start: 20%;
   }
 }

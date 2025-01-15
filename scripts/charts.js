@@ -62,7 +62,9 @@ new Chart(streamWatch, {
     datasets: [
       {
         label: "Просмотры стримов",
-        data: [1199, 884, 1640, 791, 1060, 1140, 1584, 990, 606, 2903, 617, 530],
+        data: [
+          1199, 884, 1640, 791, 1060, 1140, 1584, 990, 606, 2903, 617, 530,
+        ],
         borderWidth: 4,
         borderColor: "#F498AD",
       },
@@ -136,21 +138,28 @@ new Chart(newMaterials, {
   },
 });
 
-const browserVisitors = document.getElementById("browserVisitors"); 
-
-let labelPosition = "left";
-
-if (windowWidth <= 1024) {
-  labelPosition = "bottom";
-}
+const browserVisitors = document.getElementById("browserVisitors");
 
 new Chart(browserVisitors, {
   type: "pie",
   data: {
-    labels: ["Google Chrome", "Яндекс.Браузер", "Chrome Mobile", "Firefox", "Mobile Safary", "Opera", "Edge", "Safary", "Другие"],
+    labels: [
+      "Google Chrome",
+      "Яндекс.Браузер",
+      "Chrome Mobile",
+      "Firefox",
+      "Mobile Safary",
+      "Opera",
+      "Edge",
+      "Safary",
+      "Другие",
+    ],
     datasets: [
       {
-        data: [2050000, 682641, 360276, 159278, 156863, 153741, 153578, 163623, 163623],
+        data: [
+          2050000, 682641, 360276, 159278, 156863, 153741, 153578, 163623,
+          163623,
+        ],
         backgroundColor: [
           "#663613",
           "#123E66",
@@ -160,7 +169,7 @@ new Chart(browserVisitors, {
           "#5F377D",
           "#024B25",
           "#979797",
-          "#FFFFFF"
+          "#FFFFFF",
         ],
       },
     ],
@@ -169,11 +178,6 @@ new Chart(browserVisitors, {
     scales: {
       y: {
         beginAtZero: true,
-      },
-    },
-    plugins: {
-      legend: {
-        position: labelPosition,
       },
     },
   },
@@ -197,7 +201,7 @@ new Chart(systemVisitors, {
           "#5F377D",
           "#024B25",
           "#979797",
-          "#FFFFFF"
+          "#FFFFFF",
         ],
       },
     ],
@@ -210,7 +214,7 @@ new Chart(systemVisitors, {
     },
     plugins: {
       legend: {
-        position: labelPosition,
+        position: "bottom",
       },
     },
   },
