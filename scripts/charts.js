@@ -136,7 +136,7 @@ new Chart(newMaterials, {
   },
 });
 
-const newOldContributors = document.getElementById("newOldContributors");
+const geographyVisitors = document.getElementById("geographyVisitors");
 
 let labelPosition = "left";
 
@@ -144,13 +144,13 @@ if (windowWidth <= 1024) {
   labelPosition = "bottom";
 }
 
-new Chart(newOldContributors, {
+new Chart(geographyVisitors, {
   type: "pie",
   data: {
-    labels: ["HTML", "CSS", "JavaScript", "A11y", "Веб-платформа", "Рецепты"],
+    labels: ["Россия", "Беларусь", "США", "Казахстан", "Германия", "Другие"],
     datasets: [
       {
-        data: [5, 10, 15, 20, 25, 30],
+        data: [2990000, 121176, 117139, 78112, 66976, 446597],
         backgroundColor: [
           "#663613",
           "#123E66",
