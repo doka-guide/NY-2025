@@ -55,13 +55,13 @@
 
 .metrics-text {
   position: absolute;
-  inset-block-start: 10%;
+  inset-block-start: 20%;
   inset-inline-start: 50%;
   text-transform: uppercase;
   transform: translate(-50%, -50%);
 
   &:nth-child(2) {
-    inset-block-start: 30%;
+    inset-block-start: 40%;
     inset-inline-start: 80%;
   }
 
@@ -81,17 +81,17 @@
   }
 
   &:nth-child(6) {
-    inset-block-start: 30%;
+    inset-block-start: 40%;
     inset-inline-start: 20%;
   }
 
   &:nth-child(7) {
-    inset-block-start: 50%;
+    inset-block-start: 60%;
     inset-inline-start: 80%;
   }
 
   &:nth-child(8) {
-    inset-block-start: 50%;
+    inset-block-start: 60%;
     inset-inline-start: 20%;
   }
 }
