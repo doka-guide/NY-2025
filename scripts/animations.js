@@ -135,21 +135,6 @@ const init = () => {
         });
       });
     });
-
-    const panels = document.querySelectorAll(".panel");
-
-    panels.forEach((panel, i) => {
-      ScrollTrigger.create({
-        trigger: panel,
-        start: "top top",
-        end: "+=100%",
-        snap: {
-          snapTo: 1,
-          duration: 0.5,
-          ease: "power1.inOut",
-        },
-      });
-    });
   }
 };
 
